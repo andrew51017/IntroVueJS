@@ -13,7 +13,7 @@ let fetchData = () => {
 
 let storeData = () => {
     fetch(endpointPut, {
-        method: 'PUT',
+        method: 'POST',
         body: JSON.stringify(data),
         headers: new Headers({
         'Content-Type': 'application/json'
