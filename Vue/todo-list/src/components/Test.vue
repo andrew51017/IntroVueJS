@@ -18,6 +18,10 @@ export default {
         name: String
     },
     created() {
+        fetch("http://www.example.com")
+            .then(res => res.json())
+            .then(res => this.test = res.value);
+            
         alert("My Component");
     },
     computed: {
