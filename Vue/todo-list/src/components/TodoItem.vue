@@ -1,5 +1,5 @@
 <template>
-    <li class="list-group-item" v-bind:class="{'border-success' : item.done, 'border-warning' : !item.done}">
+    <li class="list-group-item" v-bind:class="{'list-group-item-success' : item.done, 'list-group-item-warning' : !item.done}">
         {{item.text}} 
         <a v-if="!item.done" href="#" @click="toggleDone()">(Complete)</a>
         <a v-else href="#" @click="toggleDone()">(Re-open)</a>

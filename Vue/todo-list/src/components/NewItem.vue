@@ -30,6 +30,7 @@ export default {
 
             this.$emit("new-item", newItem);
             this.newItemText = '';
+            return false;
         }
     }
 }

@@ -1,8 +1,9 @@
-let endpoint = 'https://api.myjson.com/bins/d8klb';
+let endpointGet = 'http://localhost:8000/get.php';
+let endpointPut = 'http://localhost:8000/put.php';
 let data = [];
 
 let fetchData = () => {
-    fetch(endpoint)
+    fetch(endpointGet)
         .then(resp => resp.json())
         .then(res => {
             data = res;
@@ -11,7 +12,7 @@ let fetchData = () => {
 };
 
 let storeData = () => {
-    fetch(endpoint, {
+    fetch(endpointPut, {
         method: 'PUT',
         body: JSON.stringify(data),
         headers: new Headers({

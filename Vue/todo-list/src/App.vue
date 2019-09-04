@@ -17,7 +17,7 @@
             <ul class="list-group list-group-flush" id="pendingItems">
               <todo-item :item="item" v-for="(item,idx) in pendingItems" :key="idx" v-on:updated-item="onUpdatedItem"></todo-item>
             </ul>
-            <new-item v-on:on-new-item="handleNewItem"></new-item>              
+            <new-item v-on:new-item="handleNewItem"></new-item>              
         </div>     
         
         <hr/>
@@ -40,7 +40,8 @@
 import TodoItem from './components/TodoItem';
 import NewItem from './components/NewItem';
 
-let endpoint = 'https://api.myjson.com/bins/d8klb';
+let endpointGet = 'http://localhost:8000/get.php';
+let endpointPut = 'http://localhost:8000/put.php';
 
 export default {
   name: 'app',
@@ -59,7 +60,7 @@ export default {
   },
   created() {
     
-    fetch(endpoint)
+    fetch(endpointGet)
         .then(resp => resp.json())
         .then(res => {
             this.items = res;
@@ -67,8 +68,8 @@ export default {
   },
   methods: {
     onUpdatedItem() {
-      return fetch(endpoint, {
-          method: 'PUT',
+      return fetch(endpointPut, {
+          method: 'POST',
           body: JSON.stringify(this.items),
           headers: new Headers({
           'Content-Type': 'application/json'
