@@ -1,0 +1,10 @@
+[
+	{
+		"text": "Check email",
+		"done": true
+	},
+	{
+		"text": "Do shopping",
+		"done": false
+	}	
+]
